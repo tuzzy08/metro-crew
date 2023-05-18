@@ -11,6 +11,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
+import ThemeColorSwitcher from '@/app/components/themeColorSwitcher';
 
 const useStyles = createStyles((theme) => ({
 	header: {
@@ -123,8 +124,9 @@ export default function HeaderMenuColored({ links }: HeaderSearchProps) {
 			<Container>
 				<div className={classes.inner}>
 					<MantineLogo size={28} inverted />
-					<Group spacing={5} className={classes.links}>
+					<Group spacing={6} className={classes.links}>
 						{items}
+						<ThemeColorSwitcher />
 					</Group>
 					<Burger
 						opened={opened}

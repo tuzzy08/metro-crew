@@ -1,5 +1,11 @@
 'use client';
 
+import { useState } from 'react';
+import {
+	MantineProvider,
+	ColorSchemeProvider,
+	ColorScheme,
+} from '@mantine/core';
 import { createStyles } from '@mantine/core';
 
 export const metadata = {
@@ -19,9 +25,23 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	const { classes } = useStyles();
+	const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
+	const toggleColorScheme = (value?: ColorScheme) =>
+		setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 	return (
-		<html lang='en'>
-			<body className={classes.body}>{children}</body>
-		</html>
+		<ColorSchemeProvider
+			colorScheme={colorScheme}
+			toggleColorScheme={toggleColorScheme}
+		>
+			<MantineProvider
+				theme={{ colorScheme }}
+				withGlobalStyles
+				withNormalizeCSS
+			>
+				<html lang='en'>
+					<body>{children}</body>
+				</html>
+			</MantineProvider>
+		</ColorSchemeProvider>
 	);
 }
