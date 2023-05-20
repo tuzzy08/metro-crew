@@ -1,4 +1,4 @@
-import { Providers } from '@/app/providers';
+import RootStyleRegistry from './components/emotion';
 
 export const metadata = {
 	title: 'Metro Crew',
@@ -12,7 +12,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body style={{ padding: 0, margin: 0 }}>
-				<Providers>{children}</Providers>
+				<RootStyleRegistry>{children}</RootStyleRegistry>
 			</body>
 		</html>
 	);
