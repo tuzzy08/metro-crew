@@ -1,9 +1,9 @@
-import DocumentAppShell from './components/appShell';
+import { Wrapper } from './components/wrapper';
 
 export default function DocumentPortalLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	return <DocumentAppShell>{children}</DocumentAppShell>;
+	return <Wrapper>{children}</Wrapper>;
 }

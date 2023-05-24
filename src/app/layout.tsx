@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body style={{ padding: 0, margin: 0 }}>
+			<body style={{ padding: 0, margin: 0 }} suppressHydrationWarning={true}>
 				<RootStyleRegistry>{children}</RootStyleRegistry>
 			</body>
 		</html>
